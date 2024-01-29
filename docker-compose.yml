@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    image: dockerfile:tag
+    ports:
+      - "8080:80"
+    volumes:
+      - ./your-php-app:/var/www/html
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: shopping.sql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
